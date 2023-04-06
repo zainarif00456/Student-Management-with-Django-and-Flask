@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Student Details {% endblock  %}
+{% block link %}<link rel="stylesheet" href="/media/css/style.css">{% endblock  %}
+
+
+{% block body %}
+
+<ul class="tilesWrap">
+	<li>
+		<h2> {{student.id}} </h2>
+		<h3> Name: {{student.name}} </h3>
+			<h3>Class Enrolled: {{student.class_enrolled}} </h3>
+            <h3>Gender: {{student.gender}} </h3>
+            <h3>Date of Birth: {{student.date_of_birth}} </h3>
+	</li>
+	<li>
+		<h2>{{student.id}}</h2>
+		<h3>Father's Name: {{student.fathers_name}} </h3>
+		<h3>Father's CNIC: {{student.fathers_cnic}} </h3>
+        <h3>Phone No: {{student.fathers_phone}} </h3>
+		
+	</li>
+ 	
+</ul>
+
+<div class="container my-3" style="width: 500px;">
+    <a href="/adminpanel/updatestudent/{{student.id}}">
+<button type="type" class="btn btn-outline-primary" style="width: 100%;">Update</button>
+</a>
+</div>
+
+<div class="container" style="width: 500px;">
+    <a href="/adminpanel/deletestudent/{{student.id}}">
+<button type="type" class="btn btn-outline-danger" style="width: 100%;">Delete</button>
+</a>
+</div>
+{% endblock %}

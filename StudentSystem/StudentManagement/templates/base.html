@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - {% block title %}{% endblock  %} </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    {% block link %}{% endblock  %}
+
+
+
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">School System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/adminpanel/">Home</a>
+              </li>
+              {% if user %}
+              <li class="nav-item">
+                <a class="nav-link" href="/adminpanel/addstudent/">Add New Student</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/adminpanel/showstudents/">Show All Students</a>
+              </li>
+              {% endif %}
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Faculity
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Teachers</a></li>
+                  <li><a class="dropdown-item" href="#">Administration</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Accountant</a></li>
+                </ul>
+              </li>
+            </ul>
+            <a href="/adminpanel/signup/"> <button class="btn btn-outline-success" type="button">SignUp</button></a>
+            {% if not user %}
+            <button  data-bs-toggle="modal" data-bs-target="#loginmodel" class="btn btn-outline-success mx-3" type="button">Login</button>
+          {% else %}
+          <a href="/adminpanel/logout/"><button class="btn btn-outline-success mx-3" type="button">Logout</button></a>
+            
+          {% endif %}
+          </div>
+        </div>
+      </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="loginmodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login to Your Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="/adminpanel/login/" method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="text" class="form-control" required name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" required name="password" id="exampleInputPassword1">
+          </div>
+          <button class="btn btn-outline-success" type="submit">Login</button>
+          
+        </form>
+
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+    {% block body %}{% endblock  %}
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+
+<!-- 
+    <script>
+      localStorage.setItem("token", "{{token}}");  
+  </script> -->
+
+
+</body>
+</html>

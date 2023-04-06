@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Information{% endblock  %}
+
+
+{% block body %}
+
+<!--Admission Form-->
+<form action="/adminpanel/updatestudent/{{student.id}}" method="POST">
+    {% csrf_token %}
+    <div class="container" style="width: 700px;">
+    <div class="container my-3" >
+        <div class="row">
+            <div class="col">
+                <input type="number" value="{{student.id}}" required class="form-control" name="id" placeholder="Enter ID" aria-label="ID">
+            </div>
+        </div>
+    </div>
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <input type="text" value="{{student.name}}" required class="form-control" name="name" placeholder="Name of Student" aria-label="Name of Student">
+        </div>
+        <div class="col">
+            <input type="text" required class="form-control" value="{{student.fathers_name}}" name="fathername" placeholder="Father's Name" aria-label="Father's Name">
+        </div>
+    </div>
+</div>
+
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <input type="number" required class="form-control" value="{{student.fathers_cnic}}" name="cnic" placeholder="First CNIC" aria-label="Father's CNIC">
+        </div>
+        <div class="col">
+            <input type="number" required class="form-control" value="{{student.fathers_phone}}" name="phone" placeholder="Phone Number" aria-label="Phone Number">
+        </div>
+    </div>
+</div>
+
+
+<div class="container my-3">
+    <div class="form-check">
+        <label class="form-check-label" >
+            Gender: {{student.gender}}
+        </label>
+      </div>
+</div>
+
+
+<div class="container my-3">
+    <div class="mb-3">
+        <label for="dateofbirth" class="form-label">Date of Birth</label>
+        <input type="date" value="{{student.date_of_birth}}" required name="dateofbirth" required class="form-control" id="dateofbirth">
+      </div>
+        <div class="col">
+            <input type="text" value="{{student.class_enrolled}}" required class="form-control" name="class" placeholder="Class Enrolled" aria-label="Class Enrolled">
+        </div>
+        <div class="container my-2" style="width: 300px;">
+        <button class="btn btn-outline-primary my-3" type="submit" style="width: 100%;">Update</button>
+    </div>
+    </div>
+    
+</div>
+</div>
+</form>
+
+
+
+{% endblock %}
+

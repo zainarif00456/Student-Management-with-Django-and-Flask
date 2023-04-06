@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Student Details {% endblock  %}
+{% block link %}<link rel="stylesheet" href="/media/css2/style.css"> {% endblock  %}
+
+
+{% block body %}
+
+{% for data in student %}
+<form action="/adminpanel/getstudent">
+<ul class="tilesWrap">
+	<li>
+		<input type="hidden" name="id" value="{{data.id}}">
+		<h2 style="color: white;">{{data.id}} </h2>
+		<h3> Name: {{data.name}} </h3>
+			<h3>Class Enrolled: {{data.class_enrolled}} </h3>
+            <h3>Gender: {{data.gender}} </h3>
+            <h3>Date of Birth: {{data.date_of_birth}} </h3>
+	</li>
+	<li>
+		<h2 style="color: white;">{{data.id}}</h2>
+		<h3>Father's Name: {{data.fathers_name}} </h3>
+		<h3>Father's CNIC: {{data.fathers_cnic}} </h3>
+        <h3>Phone No: {{data.fathers_phone}} </h3>
+        <h3>Added By: {{data.added_by}} </h3>
+
+	</li>
+ 	<button type="type" class="btn btn-outline-success">Select</button>
+</ul>
+</form>
+{% endfor %}
+
+{% endblock  %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Admission Form {% endblock  %}
+
+
+{% block body %}
+
+<!--Admission Form-->
+<form action="/adminpanel/addstudent/" method="POST">
+    {% csrf_token %}
+    <div class="container my-3">
+        <div class="row">
+            <div class="col">
+                <input type="number" required class="form-control" name="id" placeholder="Enter ID" aria-label="ID">
+            </div>
+        </div>
+    </div>
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <input type="text" required class="form-control" name="name" placeholder="Name of Student" aria-label="Name of Student">
+        </div>
+        <div class="col">
+            <input type="text" required class="form-control" name="fathername" placeholder="Father's Name" aria-label="Father's Name">
+        </div>
+    </div>
+</div>
+
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <input type="number" required class="form-control" name="cnic" placeholder="First CNIC" aria-label="Father's CNIC">
+        </div>
+        <div class="col">
+            <input type="number" required class="form-control" name="phone" placeholder="Phone Number" aria-label="Phone Number">
+        </div>
+    </div>
+</div>
+
+
+<div class="container my-3">
+    <div class="form-check">
+        <input class="form-check-input" required type="radio" name="gender" value="Male" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Male
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" required type="radio" name="gender" value="Female" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Female
+        </label>
+      </div>
+</div>
+
+
+<div class="container my-3">
+    <div class="mb-3">
+        <label for="dateofbirth" class="form-label">Date of Birth</label>
+        <input type="date" required name="dateofbirth" required class="form-control" id="dateofbirth">
+      </div>
+        <div class="col">
+            <input type="text" required class="form-control" name="class" placeholder="Class Enrolled" aria-label="Class Enrolled">
+        </div>
+        <button class="btn btn-outline-success my-3" type="submit">Register</button>
+    </div>
+    
+</div>
+</form>
+
+
+
+{% endblock %}
+

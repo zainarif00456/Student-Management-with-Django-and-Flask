@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Sign Up {% endblock %}
+
+{% block body %}
+<div class="container" style="width: 500px;">
+<form action="/adminpanel/signup/" method="POST">
+    {%csrf_token%}
+      <div class="mb-3">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Full Name</label>
+            <input type="text" name="fullname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">
+              
+
+            </div>
+            <div class="mb-3">
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">CNIC</label>
+                  <input type="number" name="cnic" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">
+                  </div>
+          </div>
+
+
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" required type="radio" name="gender" value="Male" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Male
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" required type="radio" name="gender" value="Female" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Female
+        </label>
+      </div>
+      <div class="mb-3">
+        <label for="dateofbirth" class="form-label">Date of Birth</label>
+        <input type="date" name="dateofbirth" required class="form-control" id="dateofbirth">
+      </div>
+
+      <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
+        <input type="text" name="username" required class="form-control" id="username">
+      </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" name="password" required class="form-control" id="password">
+    </div>
+    
+
+    <div class="mb-3">
+        <label for="confirmpassword" class="form-label">Confirm Password</label>
+        <input type="password" name="confirmpassword" required class="form-control" id="confirmpassword">
+      </div>
+
+      <div class="container" style="width: 300px;">
+    <button type="submit" class="btn btn-outline-success" style="width: 100%;">Sign Up</button>
+  </div>
+  </form>
+
+</div>
+
+    {% endblock  %}
